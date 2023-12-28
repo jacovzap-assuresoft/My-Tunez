@@ -8,3 +8,27 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "CircularFont";
+  src: url("./fonts/CircularSpotifyText-Black.otf") format("opentype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "CircularFont";
+  src: url("./fonts/CircularSpotifyText-Bold.otf") format("opentype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "CircularFont";
+  src: url("./fonts/CircularSpotifyText-Medium.otf") format("opentype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "CircularFont";
+  src: url("./fonts/CircularSpotifyText-Light.otf") format("opentype");
+  font-weight: 300;
+}
+

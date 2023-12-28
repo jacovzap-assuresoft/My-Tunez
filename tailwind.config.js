@@ -5,6 +5,9 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      sans: ['CircularFont', 'sans-serif'] // Ensure fonts with spaces have " " surrounding it.
+    },
     extend: {},
   },
   plugins: [],
