@@ -6,7 +6,7 @@ export default {
   ],
   theme: {
     fontFamily: {
-      sans: ['CircularFont', 'sans-serif'] // Ensure fonts with spaces have " " surrounding it.
+      sans: ['CircularFont', 'sans-serif']
     },
     extend: {},
   },

@@ -1,6 +1,6 @@
 const Artists = () => {
   return (
-    <div>artists</div>
+    <div className="bg-green-200">artists</div>
   )
 }
 

@@ -1,6 +1,6 @@
 const Albums = () => {
   return (
-    <div>A</div>
+    <div className="bg-red-700">A</div>
   )
 }
 
