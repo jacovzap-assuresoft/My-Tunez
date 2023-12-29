@@ -14,9 +14,9 @@ const Logo = () => {
       <img
         src='favicon.svg'
         alt=''
-        className=' rotate-[-90deg] group-hover:rotate-[0] transition rounded-full w-14 h-14'
+        className=' rotate-[-90deg] group-hover:rotate-[0] transition rounded-full w-12 h-12'
       />
-      <h1 className='text-red-600 font-black text-[30px] '>My Tunez</h1>
+      <h1 className='text-red-600 font-black text-[27px] '>My Tunez</h1>
     </div>
   )
 }
