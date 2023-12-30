@@ -46,7 +46,7 @@ const Sidebar = () => {
       </section>
       <section className='flex flex-col gap-2'>
         {principalRoutes.map(route => (
-          <Link to={route.path} >
+          <Link to={route.path} key={route.name}>
             <div
               className={`${
                 location.pathname === route.path ? 'bg-gray-200 text-gray-900' : 'text-gray-600'
@@ -54,7 +54,7 @@ const Sidebar = () => {
             >
               {route.icon}
               <p className={`${
-                location.pathname === route.path ? 'font-bold' : 'font-normal'
+                location.pathname === route.path ? 'font-semibold' : 'font-medium'
               }`}>{route.label}</p>
             </div>
           </Link>
@@ -63,7 +63,7 @@ const Sidebar = () => {
       <section className='flex flex-col gap-2 p-2'>
         <h3 className='font-bold mb-3'>YOUR LIBRARY</h3>
         {libraryRoutes.map(route => (
-          <Link to={route.path} >
+          <Link to={route.path} key={route.name}>
             <div
               className={`${
                 location.pathname === route.path ? 'bg-gray-200 text-gray-900' : 'text-gray-600'

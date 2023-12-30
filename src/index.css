@@ -7,7 +7,7 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+/* 
 @font-face {
   font-family: "CircularFont";
   src: url("./fonts/CircularSpotifyText-Black.otf") format("opentype");
@@ -30,5 +30,16 @@
   font-family: "CircularFont";
   src: url("./fonts/CircularSpotifyText-Light.otf") format("opentype");
   font-weight: 300;
+} */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

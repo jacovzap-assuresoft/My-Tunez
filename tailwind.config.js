@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+import defaultTheme from 'tailwindcss/defaultTheme';
+
 export default {
   content: [
     "./index.html",
@@ -6,7 +9,7 @@ export default {
   ],
   theme: {
     fontFamily: {
-      sans: ['CircularFont', 'sans-serif']
+      sans: ['Inter var', ...defaultTheme.fontFamily.sans],
     },
     extend: {},
   },

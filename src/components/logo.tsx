@@ -16,7 +16,7 @@ const Logo = () => {
         alt=''
         className=' rotate-[-90deg] group-hover:rotate-[0] transition rounded-full w-12 h-12'
       />
-      <h1 className='text-red-600 font-black text-[27px] '>My Tunez</h1>
+      <h1 className='text-red-700 font-black text-[27px] '>My Tunez</h1>
     </div>
   )
 }
