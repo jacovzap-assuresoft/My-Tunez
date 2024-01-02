@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react'
-import { v4 as uuidv4 } from 'uuid'
+import { useState, useEffect, useMemo } from 'react'
+import ShortUniqueId from 'short-unique-id'
 
 import { Album, Artist, Song } from '../types'
 import { getAllSongs, createSong } from '../services/songs'
 import { getAllAlbums, addSongToAlbum, getSingleAlbum } from '../services/albums'
 import { getAllArtists } from '../services/artists'
+
 
 interface SelectFormat {
   label: string
@@ -12,6 +13,7 @@ interface SelectFormat {
 }
 
 const useSongs = () => {
+  const id = useMemo(() => new ShortUniqueId({ length: 10 }).rnd(), [])
   const [songs, setSongs] = useState<Song[]>([])
 
   const [title, setTitle] = useState('')
@@ -93,7 +95,7 @@ const useSongs = () => {
     const singleAlbum = await getSingleAlbum(albumId)
 
     const newSong = {
-      id: uuidv4(),
+      id,
       title,
       genre,
       releaseDate,

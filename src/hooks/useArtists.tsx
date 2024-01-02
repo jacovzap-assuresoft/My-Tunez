@@ -1,10 +1,13 @@
-import { useState, useEffect } from 'react'
-import { v4 as uuidv4 } from 'uuid'
+import { useState, useEffect, useMemo } from 'react'
+import ShortUniqueId from 'short-unique-id'
 
 import { Artist } from '../types'
 import { getAllArtists, createArtist } from '../services/artists'
 
+
 const useArtists = () => {
+  const id = useMemo(() => new ShortUniqueId({ length: 10 }).rnd(), [])
+
   const [artists, setArtists] = useState<Artist[]>([])
 
   const [name, setName] = useState('')
@@ -52,7 +55,7 @@ const useArtists = () => {
   const handleCreateArtist = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const newArtist = {
-      id: uuidv4(),
+      id,
       name,
       genres,
       integrants,

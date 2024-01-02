@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react'
-import { v4 as uuidv4 } from 'uuid'
+import { useState, useEffect, useMemo } from 'react'
+import ShortUniqueId from 'short-unique-id'
 
 import { Album, Artist } from '../types'
 import { getAllArtists } from '../services/artists'
 import { getAllAlbums, createAlbum } from '../services/albums'
+
 
 interface SelectFormat {
   label: string
@@ -11,6 +12,8 @@ interface SelectFormat {
 }
 
 const useAlbums = () => {
+  const id = useMemo(() => new ShortUniqueId({ length: 10 }).rnd(), [])
+
   const [albums, setAlbums] = useState<Album[]>([])
 
   const [title, setTitle] = useState('')
@@ -64,7 +67,7 @@ const useAlbums = () => {
     const artistName = artists.find(artist => artist.value === artistId)?.label || ''
 
     const newAlbum = {
-      id: uuidv4(),
+      id,
       title,
       genre,
       cover,
