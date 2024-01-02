@@ -61,13 +61,16 @@ const useAlbums = () => {
 
   const handleCreateAlbum = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    const artistName = artists.find(artist => artist.value === artistId)?.label || ''
+
     const newAlbum = {
       id: uuidv4(),
       title,
       genre,
       potrait,
       artistId,
-      releaseDate: new Date(releaseDate),
+      artistName,
+      releaseDate,
       songs: []
     }
 

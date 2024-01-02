@@ -49,7 +49,7 @@ const Sidebar = () => {
           <Link to={route.path} key={route.name}>
             <div
               className={`${
-                location.pathname === route.path ? 'bg-gray-200 text-gray-900' : 'text-gray-600'
+                location.pathname === route.path ? 'bg-gray-50 text-gray-900' : 'text-gray-600'
               } flex items-center gap-3 w-full h-12 px-4 rounded-md transition hover:text-gray-900 `}
             >
               {route.icon}
@@ -66,7 +66,7 @@ const Sidebar = () => {
           <Link to={route.path} key={route.name}>
             <div
               className={`${
-                location.pathname === route.path ? 'bg-gray-200 text-gray-900' : 'text-gray-600'
+                location.pathname === route.path ? 'bg-gray-50 text-gray-900' : 'text-gray-600'
               } flex items-center gap-3 w-full h-12 px-4 rounded-md transition hover:text-gray-900 `}
             >
               <p className={`${
