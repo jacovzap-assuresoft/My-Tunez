@@ -1,9 +1,5 @@
-import TextFormControl from '../components/text-form-control'
-import DateFormControl from '../components/date-form-control'
-import SelectFormControl from '../components/select-form-control'
-
-import Button from '../components/button'
 import Modal from '../components/modal'
+import AlbumForm from '../components/albums/album-form'
 
 import useAlbums from '../hooks/useAlbums'
 
@@ -15,47 +11,7 @@ const Albums = () => {
       <section className='flex justify-between'>
         <h1 className=' text-4xl font-bold'>Albums</h1>
         <Modal title={'Register Album'}>
-          <form
-            className='flex flex-col gap-4'
-            onSubmit={albums.handleCreateAlbum}
-          >
-            <TextFormControl
-              label={'Title'}
-              isRequired
-              value={albums.title}
-              onInput={albums.setTitle}
-            />
-            <TextFormControl
-              label={'Genre'}
-              isRequired
-              value={albums.genre}
-              onInput={albums.setGenre}
-            />
-            <DateFormControl
-              label={'Release Year'}
-              isRequired
-              value={albums.releaseDate}
-              onInput={albums.setReleaseDate}
-            />
-            <SelectFormControl
-              label={'Artist'}
-              isRequired
-              value={albums.artistId}
-              onSelect={albums.setArtistId}
-              options={albums.artists}
-            />
-            <TextFormControl
-              label={'Potrait'}
-              isRequired
-              value={albums.potrait}
-              onInput={albums.setPotrait}
-            />
-            <Button
-              label={'Save'}
-              type={'submit'}
-              isDisabled={!albums.isFormValid}
-            />
-          </form>
+          <AlbumForm albums={albums} />
         </Modal>
       </section>
       {albums.albums.length === 0 && (
