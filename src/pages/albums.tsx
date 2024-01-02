@@ -28,7 +28,7 @@ const Albums = () => {
               label={'Genre'}
               isRequired
               value={albums.genre}
-              onInput={albums.setGender}
+              onInput={albums.setGenre}
             />
             <DateFormControl
               label={'Release Year'}

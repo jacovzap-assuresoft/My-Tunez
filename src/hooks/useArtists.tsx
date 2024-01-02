@@ -7,12 +7,12 @@ const useArtists = () => {
   const [artists, setArtists] = useState<Artist[]>([])
 
   const [name, setName] = useState('')
-  const [genres, setGenders] = useState<string[]>([])
+  const [genres, setGenres] = useState<string[]>([])
   const [integrants, setIntegrants] = useState<string[]>([])
   const [website, setWebsite] = useState('')
   const [image, setImage] = useState('')
 
-  const [genre, setGender] = useState('')
+  const [genre, setGenre] = useState('')
   const [integrant, setIntegrant] = useState('')
 
   const [isFormValid, setIsFormValid] = useState(false)
@@ -43,7 +43,7 @@ const useArtists = () => {
 
   const clearForm = () => {
     setName('')
-    setGenders([])
+    setGenres([])
     setIntegrants([])
     setWebsite('')
     setImage('')
@@ -51,7 +51,7 @@ const useArtists = () => {
 
   const handleCreateArtist = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const newAlbum = {
+    const newArtist = {
       name,
       genres,
       integrants,
@@ -59,15 +59,15 @@ const useArtists = () => {
       image
     }
 
-    await createArtist(newAlbum)
+    await createArtist(newArtist)
     await handleGetArtists()
     clearForm()
   }
 
-  const handleAddGender = () => {
+  const handleAddGenre = () => {
     if (genre !== '') {
-      setGenders([...genres, genre])
-      setGender('')
+      setGenres([...genres, genre])
+      setGenre('')
     }
   }
 
@@ -76,10 +76,10 @@ const useArtists = () => {
     setIntegrant('')
   }
 
-  const handleRemoveGender = (index: number) => {
+  const handleRemoveGenre = (index: number) => {
     console.log(index)
-    const filteredGenders = genres.filter((_, i) => i !== index)
-    setGenders(filteredGenders)
+    const filteredGenres = genres.filter((_, i) => i !== index)
+    setGenres(filteredGenres)
   }
 
   const handleRemoveIntegrant = (index: number) => {
@@ -92,7 +92,7 @@ const useArtists = () => {
     name,
     setName,
     genres,
-    setGenders,
+    setGenres,
     integrants,
     setIntegrants,
     website,
@@ -104,14 +104,14 @@ const useArtists = () => {
     setIsFormValid,
 
     genre,
-    setGender,
+    setGenre,
     integrant,
     setIntegrant,
 
     handleCreateArtist,
-    handleAddGender,
+    handleAddGenre,
     handleAddIntegrant,
-    handleRemoveGender,
+    handleRemoveGenre,
     handleRemoveIntegrant
   }
 }

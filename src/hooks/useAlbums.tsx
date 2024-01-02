@@ -7,7 +7,7 @@ const useAlbums = () => {
   const [albums, setAlbums] = useState<Album[]>([])
 
   const [title, setTitle] = useState('')
-  const [genre, setGender] = useState('')
+  const [genre, setGenre] = useState('')
   const [releaseDate, setReleaseDate] = useState('')
   const [potrait, setPotrait] = useState('')
   const [songs, setSongs] = useState('')
@@ -41,7 +41,7 @@ const useAlbums = () => {
 
   const clearForm = () => {
     setTitle('')
-    setGender('')
+    setGenre('')
     setReleaseDate(Date)
     setPotrait('')
     setSongs('')
@@ -67,7 +67,7 @@ const useAlbums = () => {
     title,
     setTitle,
     genre,
-    setGender,
+    setGenre,
     releaseDate,
     setReleaseDate,
     potrait,

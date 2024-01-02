@@ -29,9 +29,9 @@ const Artists = () => {
               isRequired
               value={artists.genre}
               list={artists.genres}
-              onInput={artists.setGender}
-              onAdd={artists.handleAddGender}
-              onRemove={artists.handleRemoveGender}
+              onInput={artists.setGenre}
+              onAdd={artists.handleAddGenre}
+              onRemove={artists.handleRemoveGenre}
             />
             <ListFormControl
               label={'Integrants'}
