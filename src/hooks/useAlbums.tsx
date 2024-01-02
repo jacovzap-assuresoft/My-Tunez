@@ -1,8 +1,14 @@
 import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
-import { Album } from '../types'
+import { Album, Artist } from '../types'
+import { getAllArtists } from '../services/artists'
 import { getAllAlbums, createAlbum } from '../services/albums'
+
+interface SelectFormat {
+  label: string
+  value: string
+}
 
 const useAlbums = () => {
   const [albums, setAlbums] = useState<Album[]>([])
@@ -11,29 +17,36 @@ const useAlbums = () => {
   const [genre, setGenre] = useState('')
   const [releaseDate, setReleaseDate] = useState('')
   const [potrait, setPotrait] = useState('')
+  const [artistId, setArtistId] = useState('')
 
   const [isFormValid, setIsFormValid] = useState(false)
+  const [artists, setArtists] = useState<SelectFormat[]>([])
 
   const handleGetAlbums = async () => {
     const albums = await getAllAlbums()
-
     setAlbums(albums)
+  }
+
+  const handleGetArtists = async () => {
+    const artists = await getAllArtists()
+    const format = artists.map((artist: Artist) => {
+      return {
+        label: artist.name,
+        value: artist.id
+      }
+    })
+    setArtists(format)
   }
 
   useEffect(() => {
     handleGetAlbums()
+    handleGetArtists()
   }, [])
 
   useEffect(() => {
-    if (
-      title !== '' &&
-      genre !== '' &&
-      releaseDate !== '' &&
-      potrait !== ''
-    ) {
+    if (title !== '' && genre !== '' && releaseDate !== '' && potrait !== '') {
       setIsFormValid(true)
-    }
-    else {
+    } else {
       setIsFormValid(false)
     }
   }, [title, genre, releaseDate, potrait])
@@ -43,6 +56,7 @@ const useAlbums = () => {
     setGenre('')
     setReleaseDate('')
     setPotrait('')
+    setArtistId('')
   }
 
   const handleCreateAlbum = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -52,6 +66,7 @@ const useAlbums = () => {
       title,
       genre,
       potrait,
+      artistId,
       releaseDate: new Date(releaseDate),
       songs: []
     }
@@ -71,6 +86,10 @@ const useAlbums = () => {
     setReleaseDate,
     potrait,
     setPotrait,
+
+    artistId,
+    setArtistId,
+    artists,
     isFormValid,
 
     handleCreateAlbum

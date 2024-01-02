@@ -1,5 +1,6 @@
 import TextFormControl from '../components/text-form-control'
 import DateFormControl from '../components/date-form-control'
+import SelectFormControl from '../components/select-form-control'
 
 import Button from '../components/button'
 import Modal from '../components/modal'
@@ -36,13 +37,24 @@ const Albums = () => {
               value={albums.releaseDate}
               onInput={albums.setReleaseDate}
             />
+            <SelectFormControl
+              label={'Artist'}
+              isRequired
+              value={albums.artistId}
+              onSelect={albums.setArtistId}
+              options={albums.artists}
+            />
             <TextFormControl
               label={'Potrait'}
               isRequired
               value={albums.potrait}
               onInput={albums.setPotrait}
             />
-           <Button label={'Save'} type={'submit'} isDisabled={!albums.isFormValid}/>
+            <Button
+              label={'Save'}
+              type={'submit'}
+              isDisabled={!albums.isFormValid}
+            />
           </form>
         </Modal>
       </section>
@@ -57,6 +69,7 @@ const Albums = () => {
         <div key={album.title}>
           <div>{album.title}</div>
           <div>{album.genre}</div>
+          <div>{album.artistId}</div>
           <div>{album.releaseDate.toString()}</div>
           <div>{album.potrait}</div>
         </div>

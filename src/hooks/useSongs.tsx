@@ -38,8 +38,7 @@ const useSongs = () => {
         label: album.title,
         value: album.id
       }
-    }
-    )
+    })
     setAlbums(format)
   }
 
@@ -50,8 +49,7 @@ const useSongs = () => {
         label: artist.name,
         value: artist.id
       }
-    }
-    )
+    })
     setArtists(format)
   }
 
