@@ -13,7 +13,7 @@ export interface Album {
   genre: string
   releaseDate: Date
   potrait: string
-  songs: string
+  songs: string[]
 }
 
 export interface Song {

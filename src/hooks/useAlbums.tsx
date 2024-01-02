@@ -11,7 +11,6 @@ const useAlbums = () => {
   const [genre, setGenre] = useState('')
   const [releaseDate, setReleaseDate] = useState('')
   const [potrait, setPotrait] = useState('')
-  const [songs, setSongs] = useState('')
 
   const [isFormValid, setIsFormValid] = useState(false)
 
@@ -30,22 +29,20 @@ const useAlbums = () => {
       title !== '' &&
       genre !== '' &&
       releaseDate !== '' &&
-      potrait !== '' &&
-      songs !== ''
+      potrait !== ''
     ) {
       setIsFormValid(true)
     }
     else {
       setIsFormValid(false)
     }
-  }, [title, genre, releaseDate, potrait, songs])
+  }, [title, genre, releaseDate, potrait])
 
   const clearForm = () => {
     setTitle('')
     setGenre('')
-    setReleaseDate(Date)
+    setReleaseDate('')
     setPotrait('')
-    setSongs('')
   }
 
   const handleCreateAlbum = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -55,8 +52,8 @@ const useAlbums = () => {
       title,
       genre,
       potrait,
-      songs,
-      releaseDate: new Date(releaseDate)
+      releaseDate: new Date(releaseDate),
+      songs: []
     }
 
     await createAlbum(newAlbum)
@@ -74,8 +71,6 @@ const useAlbums = () => {
     setReleaseDate,
     potrait,
     setPotrait,
-    songs,
-    setSongs,
     isFormValid,
 
     handleCreateAlbum

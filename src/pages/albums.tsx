@@ -42,12 +42,6 @@ const Albums = () => {
               value={albums.potrait}
               onInput={albums.setPotrait}
             />
-            <TextFormControl
-              label={'Songs'}
-              isRequired
-              value={albums.songs}
-              onInput={albums.setSongs}
-            />
            <Button label={'Save'} type={'submit'} isDisabled={!albums.isFormValid}/>
           </form>
         </Modal>
@@ -65,7 +59,6 @@ const Albums = () => {
           <div>{album.genre}</div>
           <div>{album.releaseDate.toString()}</div>
           <div>{album.potrait}</div>
-          <div>{album.songs}</div>
         </div>
       ))}
       <div></div>

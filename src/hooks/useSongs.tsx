@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
+import { v4 as uuidv4 } from 'uuid'
+
 import { Album, Artist, Song } from '../types'
 import { getAllSongs, createSong } from '../services/songs'
-import { getAllAlbums } from '../services/albums'
+import { getAllAlbums, addSongToAlbum } from '../services/albums'
 import { getAllArtists } from '../services/artists'
 
 interface SelectFormat {
@@ -88,6 +90,7 @@ const useSongs = () => {
   const handleCreateSong = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const newSong = {
+      id: uuidv4(),
       title,
       genre,
       releaseDate: new Date(releaseDate),
@@ -98,6 +101,7 @@ const useSongs = () => {
     }
 
     await createSong(newSong)
+    await addSongToAlbum(albumId, newSong.id)
     await handleGetSongs()
     clearForm()
   }
