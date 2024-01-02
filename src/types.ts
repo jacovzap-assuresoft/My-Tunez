@@ -1,6 +1,6 @@
 export interface Artist {
   name: string
-  genders: string[]
+  genres: string[]
   integrants: string[]
   website: string
   image: string
@@ -8,7 +8,7 @@ export interface Artist {
 
 export interface Album {
   title: string
-  gender: string
+  genre: string
   releaseDate: Date
   potrait: string
   songs: string
@@ -16,7 +16,7 @@ export interface Album {
 
 export interface Song {
   title: string
-  gender: string
+  genre: string
   releaseDate: number
   artist: Artist
   album: Album

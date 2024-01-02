@@ -7,23 +7,39 @@ const useArtists = () => {
   const [artists, setArtists] = useState<Artist[]>([])
 
   const [name, setName] = useState('')
-  const [genders, setGenders] = useState<string[]>([])
+  const [genres, setGenders] = useState<string[]>([])
   const [integrants, setIntegrants] = useState<string[]>([])
   const [website, setWebsite] = useState('')
   const [image, setImage] = useState('')
 
-  const [gender, setGender] = useState('')
+  const [genre, setGender] = useState('')
   const [integrant, setIntegrant] = useState('')
+
+  const [isFormValid, setIsFormValid] = useState(false)
 
   const handleGetArtists = async () => {
     const response = await getAllArtists()
-
     setArtists(response)
   }
 
   useEffect(() => {
     handleGetArtists()
   }, [])
+
+  useEffect(() => {
+    if (
+      name !== '' &&
+      genres.length !== 0 &&
+      integrants.length !== 0 &&
+      website !== '' &&
+      image !== ''
+    ) {
+      setIsFormValid(true)
+    }
+    else {
+      setIsFormValid(false)
+    }
+  }, [name, genres, integrants, website, image])
 
   const clearForm = () => {
     setName('')
@@ -33,10 +49,11 @@ const useArtists = () => {
     setImage('')
   }
 
-  const handleCreateArtist = async () => {
+  const handleCreateArtist = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     const newAlbum = {
       name,
-      genders,
+      genres,
       integrants,
       website,
       image
@@ -48,8 +65,8 @@ const useArtists = () => {
   }
 
   const handleAddGender = () => {
-    if (gender !== '') {
-      setGenders([...genders, gender])
+    if (genre !== '') {
+      setGenders([...genres, genre])
       setGender('')
     }
   }
@@ -61,7 +78,7 @@ const useArtists = () => {
 
   const handleRemoveGender = (index: number) => {
     console.log(index)
-    const filteredGenders = genders.filter((_, i) => i !== index)
+    const filteredGenders = genres.filter((_, i) => i !== index)
     setGenders(filteredGenders)
   }
 
@@ -74,7 +91,7 @@ const useArtists = () => {
     artists,
     name,
     setName,
-    genders,
+    genres,
     setGenders,
     integrants,
     setIntegrants,
@@ -83,7 +100,10 @@ const useArtists = () => {
     image,
     setImage,
 
-    gender,
+    isFormValid,
+    setIsFormValid,
+
+    genre,
     setGender,
     integrant,
     setIntegrant,

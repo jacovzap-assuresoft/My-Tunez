@@ -25,9 +25,9 @@ const Albums = () => {
               onInput={albums.setTitle}
             />
             <TextFormControl
-              label={'Gender'}
+              label={'Genre'}
               isRequired
-              value={albums.gender}
+              value={albums.genre}
               onInput={albums.setGender}
             />
             <DateFormControl
@@ -48,7 +48,7 @@ const Albums = () => {
               value={albums.songs}
               onInput={albums.setSongs}
             />
-           <Button label={'Save'} type={'submit'}/>
+           <Button label={'Save'} type={'submit'} isDisabled={!albums.isFormValid}/>
           </form>
         </Modal>
       </section>
@@ -62,7 +62,7 @@ const Albums = () => {
       {albums.albums.map(album => (
         <div key={album.title}>
           <div>{album.title}</div>
-          <div>{album.gender}</div>
+          <div>{album.genre}</div>
           <div>{album.releaseDate.toString()}</div>
           <div>{album.potrait}</div>
           <div>{album.songs}</div>

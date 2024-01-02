@@ -1,4 +1,4 @@
-const genders = [
+const genres = [
   'Classical',
   'Jazz',
   'Blues',
@@ -21,4 +21,4 @@ const genders = [
   'Melodic'
 ]
 
-export default genders
+export default genres

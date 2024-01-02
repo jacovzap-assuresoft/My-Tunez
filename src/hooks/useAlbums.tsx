@@ -7,10 +7,12 @@ const useAlbums = () => {
   const [albums, setAlbums] = useState<Album[]>([])
 
   const [title, setTitle] = useState('')
-  const [gender, setGender] = useState('')
-  const [releaseDate, setReleaseDate] = useState(Date)
+  const [genre, setGender] = useState('')
+  const [releaseDate, setReleaseDate] = useState('')
   const [potrait, setPotrait] = useState('')
   const [songs, setSongs] = useState('')
+
+  const [isFormValid, setIsFormValid] = useState(false)
 
   const handleGetAlbums = async () => {
     const albums = await getAllAlbums()
@@ -21,6 +23,21 @@ const useAlbums = () => {
   useEffect(() => {
     handleGetAlbums()
   }, [])
+
+  useEffect(() => {
+    if (
+      title !== '' &&
+      genre !== '' &&
+      releaseDate !== '' &&
+      potrait !== '' &&
+      songs !== ''
+    ) {
+      setIsFormValid(true)
+    }
+    else {
+      setIsFormValid(false)
+    }
+  }, [title, genre, releaseDate, potrait, songs])
 
   const clearForm = () => {
     setTitle('')
@@ -34,7 +51,7 @@ const useAlbums = () => {
     e.preventDefault()
     const newAlbum = {
       title,
-      gender,
+      genre,
       potrait,
       songs,
       releaseDate: new Date(releaseDate)
@@ -49,7 +66,7 @@ const useAlbums = () => {
     albums,
     title,
     setTitle,
-    gender,
+    genre,
     setGender,
     releaseDate,
     setReleaseDate,
@@ -57,6 +74,7 @@ const useAlbums = () => {
     setPotrait,
     songs,
     setSongs,
+    isFormValid,
 
     handleCreateAlbum
   }

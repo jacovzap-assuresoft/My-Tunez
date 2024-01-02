@@ -25,10 +25,10 @@ const Artists = () => {
               onInput={artists.setName}
             />
             <ListFormControl
-              label={'Genders'}
+              label={'Genres'}
               isRequired
-              value={artists.gender}
-              list={artists.genders}
+              value={artists.genre}
+              list={artists.genres}
               onInput={artists.setGender}
               onAdd={artists.handleAddGender}
               onRemove={artists.handleRemoveGender}
@@ -54,7 +54,7 @@ const Artists = () => {
               value={artists.image}
               onInput={artists.setImage}
             />
-            <Button label={'Save'} type={'submit'}/>
+            <Button label={'Save'} type={'submit'} isDisabled={!artists.isFormValid}/>
           </form>
         </Modal>
       </section>
@@ -68,7 +68,7 @@ const Artists = () => {
       {artists.artists.map(artist => (
         <div key={artist.name}>
           <div>{artist.name}</div>
-          <div>{artist.genders[0]}</div>
+          <div>{artist.genres[0]}</div>
           <div>{artist.integrants[0]}</div>
           <div>{artist.website}</div>
           <div>{artist.image}</div>
