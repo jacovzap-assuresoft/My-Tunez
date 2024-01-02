@@ -1,9 +1,15 @@
+interface Option {
+  label: string
+  value: string
+}
+
+
 interface SelectFormControlProps {
   isRequired?: boolean
   label: string
   onSelect: (value: string) => void
   value: string
-  options: string[]
+  options: Option[]
 }
 
 const SelectFormControl = ({
@@ -28,9 +34,9 @@ const SelectFormControl = ({
         <option value='' disabled>
           Select an option
         </option>
-        {options.map((option: string) => (
-          <option key={option} value={option}>
-            {option}
+        {options.map((option: Option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
           </option>
         ))}
       </select>

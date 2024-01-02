@@ -1,4 +1,5 @@
 export interface Artist {
+  id?: string
   name: string
   genres: string[]
   integrants: string[]
@@ -7,6 +8,7 @@ export interface Artist {
 }
 
 export interface Album {
+  id?: string
   title: string
   genre: string
   releaseDate: Date
@@ -15,11 +17,12 @@ export interface Album {
 }
 
 export interface Song {
+  id?: string
   title: string
   genre: string
-  releaseDate: number
-  artist: Artist
-  album: Album
+  releaseDate: Date
+  artistId: string
+  albumId: string
   duration: number
-  resource: string
+  audio: string
 }

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 import { Artist } from '../types'
 import { getAllArtists, createArtist } from '../services/artists'
@@ -35,8 +36,7 @@ const useArtists = () => {
       image !== ''
     ) {
       setIsFormValid(true)
-    }
-    else {
+    } else {
       setIsFormValid(false)
     }
   }, [name, genres, integrants, website, image])
@@ -52,6 +52,7 @@ const useArtists = () => {
   const handleCreateArtist = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const newArtist = {
+      id: uuidv4(),
       name,
       genres,
       integrants,
@@ -72,8 +73,10 @@ const useArtists = () => {
   }
 
   const handleAddIntegrant = () => {
-    setIntegrants([...integrants, integrant])
-    setIntegrant('')
+    if (integrant !== '') {
+      setIntegrants([...integrants, integrant])
+      setIntegrant('')
+    }
   }
 
   const handleRemoveGenre = (index: number) => {
