@@ -12,7 +12,7 @@ export interface Album {
   title: string
   genre: string
   releaseDate: string
-  potrait: string
+  cover: string
   artistId: string
   artistName: string
   songs: string[]
@@ -24,7 +24,10 @@ export interface Song {
   genre: string
   releaseDate: string
   artistId: string
+  artistName: string
   albumId: string
+  albumTitle: string
   duration: number
+  cover: string
   audio: string
 }

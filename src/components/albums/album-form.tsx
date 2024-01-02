@@ -38,10 +38,10 @@ const AlbumForm = ({ albums }: AlbumFormProps) => {
         options={albums.artists}
       />
       <TextFormControl
-        label={'Potrait'}
+        label={'Cover'}
         isRequired
-        value={albums.potrait}
-        onInput={albums.setPotrait}
+        value={albums.cover}
+        onInput={albums.setCover}
       />
       <Button label={'Save'} type={'submit'} isDisabled={!albums.isFormValid} />
     </form>

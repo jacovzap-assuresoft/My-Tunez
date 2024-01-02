@@ -16,7 +16,7 @@ const useAlbums = () => {
   const [title, setTitle] = useState('')
   const [genre, setGenre] = useState('')
   const [releaseDate, setReleaseDate] = useState('')
-  const [potrait, setPotrait] = useState('')
+  const [cover, setCover] = useState('')
   const [artistId, setArtistId] = useState('')
 
   const [isFormValid, setIsFormValid] = useState(false)
@@ -44,18 +44,18 @@ const useAlbums = () => {
   }, [])
 
   useEffect(() => {
-    if (title !== '' && genre !== '' && releaseDate !== '' && potrait !== '') {
+    if (title !== '' && genre !== '' && releaseDate !== '' && cover !== '') {
       setIsFormValid(true)
     } else {
       setIsFormValid(false)
     }
-  }, [title, genre, releaseDate, potrait])
+  }, [title, genre, releaseDate, cover])
 
   const clearForm = () => {
     setTitle('')
     setGenre('')
     setReleaseDate('')
-    setPotrait('')
+    setCover('')
     setArtistId('')
   }
 
@@ -67,7 +67,7 @@ const useAlbums = () => {
       id: uuidv4(),
       title,
       genre,
-      potrait,
+      cover,
       artistId,
       artistName,
       releaseDate,
@@ -87,8 +87,8 @@ const useAlbums = () => {
     setGenre,
     releaseDate,
     setReleaseDate,
-    potrait,
-    setPotrait,
+    cover,
+    setCover,
 
     artistId,
     setArtistId,

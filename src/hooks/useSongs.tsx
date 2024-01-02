@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 import { Album, Artist, Song } from '../types'
 import { getAllSongs, createSong } from '../services/songs'
-import { getAllAlbums, addSongToAlbum } from '../services/albums'
+import { getAllAlbums, addSongToAlbum, getSingleAlbum } from '../services/albums'
 import { getAllArtists } from '../services/artists'
 
 interface SelectFormat {
@@ -87,15 +87,23 @@ const useSongs = () => {
 
   const handleCreateSong = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    const artistName = artists.find(artist => artist.value === artistId)?.label || ''
+    const albumTitle = albums.find(album => album.value === albumId)?.label || ''
+
+    const singleAlbum = await getSingleAlbum(albumId)
+
     const newSong = {
       id: uuidv4(),
       title,
       genre,
-      releaseDate: new Date(releaseDate),
+      releaseDate,
       artistId,
+      artistName,
       albumId,
+      albumTitle,
       duration,
-      audio
+      audio,
+      cover: singleAlbum?.cover || ''
     }
 
     await createSong(newSong)
