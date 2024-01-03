@@ -1,4 +1,4 @@
-import { X } from 'lucide-react'
+import { IoClose } from "react-icons/io5";
 
 import Button from './button'
 
@@ -41,7 +41,7 @@ const ListFormControl = ({
               className='bg-gray-300 flex items-center justify-center rounded-full h-4 w-4 text-black transition
                hover:bg-red-700 absolute right-[-5px] top-[-4px] opacity-0 group-hover:opacity-100 hover:text-white '
             >
-              <X className='w-3 h-3 '/>
+              <IoClose className='w-3 h-3 '/>
             </button>
           </div>
         ))}

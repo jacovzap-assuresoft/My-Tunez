@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
-    "lucide-react": "^0.303.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.49.2",
+    "react-icons": "^4.12.0",
     "react-router-dom": "^6.21.1",
     "short-unique-id": "^5.0.3",
     "zustand": "^4.4.7"

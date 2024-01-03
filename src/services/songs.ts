@@ -10,6 +10,17 @@ export const getAllSongs = async () => {
     }
 }
 
+export const getSongsByAlbum = async (albumId: string) => {
+    const response = localStorage.getItem('songs')
+
+    if (response) {
+        const songs = JSON.parse(response)
+        return songs.filter((song: Song) => song.albumId === albumId)
+    } else {
+        return []
+    }
+}
+
 export const createSong = async (song: Song) => {
     const response = localStorage.getItem('songs')
 

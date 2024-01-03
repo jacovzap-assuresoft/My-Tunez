@@ -15,7 +15,7 @@ const SongGallery = ({songs}: SongGalleryProps) => {
         </p>
       </div>
     )}
-    <div className='flex space-x-10'>
+    <div className='flex space-x-6'>
     {songs.map(song => (
       <SongCard song={song} key={song.id}/>
     ))}

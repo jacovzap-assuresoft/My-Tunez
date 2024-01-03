@@ -1,3 +1,4 @@
+
 import { Song } from '../../types'
 
 interface SongCardProps {
@@ -26,6 +27,7 @@ const SongCard = ({ song }: SongCardProps) => {
           <span> • </span>
           <p>{song.releaseDate.split('-')[0]}</p>
         </div>
+        <div></div>
       </section>
     </div>
   )

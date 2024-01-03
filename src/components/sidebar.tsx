@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { Home, Radio } from 'lucide-react'
+import { IoHome, IoRadio } from "react-icons/io5";
 
 import Logo from './logo'
 
@@ -11,13 +11,13 @@ const Sidebar = () => {
       path: '/',
       name: 'home',
       label: 'Home',
-      icon: <Home />
+      icon: <IoHome className='w-6 h-6' />
     },
     {
       path: '/browse',
       name: 'browse',
       label: 'Browse',
-      icon: <Radio />
+      icon: <IoRadio className='w-6 h-6'/>
     }
   ]
 

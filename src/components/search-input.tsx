@@ -1,9 +1,9 @@
-import { Search } from 'lucide-react'
+import { IoSearch } from "react-icons/io5"
 
 const SearchInput = () => {
   return (
     <div className='relative'>
-      <Search className='absolute top-[9px] right-4' />
+      <IoSearch className='absolute top-[9px] right-4' />
       <input type='text' className='w-full h-11 rounded-md bg-gray-200 px-5 text-xl border-none outline-1 outline-gray-300 transition' placeholder='Search'/>
     </div>
   )

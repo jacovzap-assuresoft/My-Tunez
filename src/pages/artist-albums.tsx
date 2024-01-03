@@ -1,37 +1,15 @@
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-
 import AlbumGallery from '../components/albums/album-gallery'
-
-import { getAlbumsByArtist } from '../services/albums'
-import { getSingleArtist } from '../services/artists'
-import { Album, Artist } from '../types'
+import useArtistAlbums from '../hooks/useArtistAlbums'
 
 const ArtistAlbums = () => {
-  const [artist, setArtist] = useState<Artist>()
-  const [albums, setAlbums] = useState<Album[]>([])
-  const { artistId } = useParams()
-
-  const handleGetArtistAlbums = async () => {
-    const albums = await getAlbumsByArtist(artistId as string)
-    const artist = await getSingleArtist(artistId as string)
-
-    if (artist) setArtist(artist)
-    setAlbums(albums)
-  }
-
-  useEffect(() => {
-    handleGetArtistAlbums()
-  }, [])
+  const { artist, albums } = useArtistAlbums()
 
   return (
     <div className='grow flex flex-col px-7 py-11 space-y-10'>
-      <section className='flex space-x-10'>
-        <img src={artist?.image} alt='' className='w-[220px] rounded-lg' />
+      <section className='flex space-x-10 items-center'>
+        <img src={artist?.image} alt='' className='w-[220px] rounded-full' />
         <div className='space-y-2'>
-          {artist && (
-            <h1 className=' text-4xl font-bold text-gray-700'>{artist.name}</h1>
-          )}
+          <h1 className=' text-4xl font-bold text-gray-700'>{artist?.name}</h1>
           <div className='flex space-x-2'>
             <p className='font-semibold text-gray-600'> Integrants: </p>
             {artist &&

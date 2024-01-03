@@ -1,12 +1,13 @@
-import AlbumCard from "./album-card"
+import AlbumCard from './album-card'
 
-import { Album } from "../../types"
+import { Album } from '../../types'
+import { Link } from 'react-router-dom'
 
 interface AlbumGalleryProps {
   albums: Album[]
 }
 
-const AlbumGallery = ({albums}: AlbumGalleryProps) => {
+const AlbumGallery = ({ albums }: AlbumGalleryProps) => {
   return (
     <section>
       {albums.length === 0 && (
@@ -18,7 +19,9 @@ const AlbumGallery = ({albums}: AlbumGalleryProps) => {
       )}
       <div className='flex space-x-10'>
         {albums.map(album => (
-          <AlbumCard album={album} key={album.id} />
+          <Link key={album.id} to={`/albums/${album.id}/songs`}>
+            <AlbumCard album={album} />
+          </Link>
         ))}
       </div>
     </section>
