@@ -1,6 +1,6 @@
 import Modal from '../components/modal'
 import SongForm from '../components/songs/song-form'
-import SongCard from '../components/songs/song-card'
+import SongGallery from '../components/songs/song-gallery'
 
 import useSongs from '../hooks/useSongs'
 
@@ -15,20 +15,7 @@ const Songs = () => {
           <SongForm songs={songs} />
         </Modal>
       </section>
-      <section>
-        {songs.songs.length === 0 && (
-          <div className='flex items-center justify-center grow'>
-            <p className=' font-semibold text-2xl text-red-700'>
-              There are no songs
-            </p>
-          </div>
-        )}
-        <div className='flex space-x-10'>
-        {songs.songs.map(song => (
-          <SongCard song={song} />
-        ))}
-        </div>
-      </section>
+     <SongGallery songs={songs.songs}/>
     </div>
   )
 }

@@ -10,6 +10,18 @@ export const getAllAlbums = async () => {
     }
 }
 
+export const getAlbumsByArtist = async (artistId: string) => {
+    const response = localStorage.getItem('albums')
+
+    if (response) {
+        const albums = JSON.parse(response)
+        return albums.filter((album: Album) => album.artistId === artistId)
+    } else {
+        return []
+    }
+
+}
+
 export const getSingleAlbum = async (id: string): Promise<Album | null> => {
     const response = localStorage.getItem('albums')
 

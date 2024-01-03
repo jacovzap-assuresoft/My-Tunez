@@ -6,6 +6,8 @@ import Artists from './pages/artists'
 import Songs from './pages/songs'
 import Browse from './pages/browse'
 
+import ArtistAlbums from './pages/artist-albums'
+
 const App = () => {
   return (
     <Routes>
@@ -14,6 +16,10 @@ const App = () => {
         <Route path='/artists' element={<Artists />} />
         <Route path='/songs' element={<Songs />} />
         <Route path='/browse' element={<Browse />} />
+
+        <Route path='/albums/:albumId/songs'/>
+        <Route path='/artists/:artistId/albums' element={<ArtistAlbums/>} />
+        <Route path='/artists/artistId/albums/:albumId/songs'/>
       </Route>
     </Routes>
   )

@@ -6,7 +6,7 @@ interface ArtistCardProps {
 
 const ArtistCard = ({ artist }: ArtistCardProps) => {
   return (
-    <div key={artist.id} className=' bg-gray-50 rounded-lg p-4 border border-gray-200 hover:shadow-sm space-y-3 hover:bg-white hover:scale-[1.01] transition hover:cursor-pointer'>
+    <div className=' bg-gray-50 rounded-lg p-4 border border-gray-200 hover:shadow-sm space-y-3 hover:bg-white hover:scale-[1.01] transition hover:cursor-pointer'>
       <section className='flex justify-center'>
         <img src={artist.image} alt='' className='rounded-full w-[150px]' />
       </section>

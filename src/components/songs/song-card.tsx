@@ -7,7 +7,6 @@ interface SongCardProps {
 const SongCard = ({ song }: SongCardProps) => {
   return (
     <div
-      key={song.id}
       className='w-[250px] bg-gray-50 rounded-lg space-y-1 hover:bg-white hover:cursor-pointer hover:scale-[1.01] transition'
     >
       <section>
