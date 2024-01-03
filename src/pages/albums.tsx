@@ -8,7 +8,7 @@ const Albums = () => {
   const albums = useAlbums()
 
   return (
-    <div className='grow flex flex-col px-7 py-11 space-y-10'>
+    <div className='grow flex flex-col px-7 py-11 space-y-10 overflow-y-auto'>
       <section className='flex justify-between'>
         <h1 className=' text-4xl font-bold'>Albums</h1>
         <Modal title={'Register Album'}>

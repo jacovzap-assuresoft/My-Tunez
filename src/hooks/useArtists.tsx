@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import ShortUniqueId from 'short-unique-id'
 
 import { Artist } from '../types'
@@ -7,8 +7,6 @@ import { getAllArtists, createArtist } from '../services/artists'
 import useToast from './useToast'
 
 const useArtists = () => {
-  const id = useMemo(() => new ShortUniqueId({ length: 10 }).rnd(), [])
-
   const [artists, setArtists] = useState<Artist[]>([])
 
   const [name, setName] = useState('')
@@ -58,7 +56,7 @@ const useArtists = () => {
   const handleCreateArtist = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const newArtist = {
-      id,
+      id: new ShortUniqueId({ length: 10 }).rnd(),
       name,
       genres,
       integrants,
@@ -87,7 +85,6 @@ const useArtists = () => {
   }
 
   const handleRemoveGenre = (index: number) => {
-    console.log(index)
     const filteredGenres = genres.filter((_, i) => i !== index)
     setGenres(filteredGenres)
   }

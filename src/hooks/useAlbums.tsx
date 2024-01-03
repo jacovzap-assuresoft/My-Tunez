@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import ShortUniqueId from 'short-unique-id'
 
 import { Album, Artist } from '../types'
@@ -13,8 +13,6 @@ interface SelectFormat {
 }
 
 const useAlbums = () => {
-  const id = useMemo(() => new ShortUniqueId({ length: 10 }).rnd(), [])
-
   const [albums, setAlbums] = useState<Album[]>([])
 
   const [title, setTitle] = useState('')
@@ -70,7 +68,7 @@ const useAlbums = () => {
     const artistName = artists.find(artist => artist.value === artistId)?.label || ''
 
     const newAlbum = {
-      id,
+      id: new ShortUniqueId({ length: 10 }).rnd(),
       title,
       genre,
       cover,

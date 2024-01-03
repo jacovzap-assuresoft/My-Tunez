@@ -40,7 +40,7 @@ const Sidebar = () => {
   ]
 
   return (
-    <aside className='flex flex-col w-80 px-10 py-7 gap-5'>
+    <aside className='flex flex-col min-w-80 px-10 py-7 gap-5'>
       <section className='flex items-center justify-start mb-7'>
         <Logo />
       </section>

@@ -1,14 +1,25 @@
-
-import { IoPlay } from "react-icons/io5";
+import { IoPlay, IoPause } from 'react-icons/io5'
 import { Song } from '../../types'
+
+import usePlayerStore from '../../store/usePlayerStore'
 
 interface SongCardProps {
   song: Song
 }
 
 const SongCard = ({ song }: SongCardProps) => {
+  const { playingSong, setPlayingSong, isPlaying, setIsPlaying } = usePlayerStore()
+
+  const handleClick = () => {
+    setPlayingSong(song)
+
+    if(song.id === playingSong?.id) setIsPlaying(!isPlaying)
+    else setIsPlaying(true)
+  }
+
   return (
     <div
+      onClick={handleClick}
       className='group relative w-[235px] bg-gray-50 rounded-lg space-y-1 hover:bg-white hover:cursor-pointer transition'
     >
       <section>
@@ -28,9 +39,15 @@ const SongCard = ({ song }: SongCardProps) => {
           <span> • </span>
           <p>{song.releaseDate.split('-')[0]}</p>
         </div>
-        <div className="absolute bg-red-700 p-3 rounded-full right-4 top-[195px] 
-              group-hover:opacity-100 opacity-0 transition group-hover:translate-y-[-10px]">
-          <IoPlay className='w-5 h-5 text-white'/>
+        <div
+          className='absolute bg-red-700 p-3 rounded-full right-4 top-[185px]
+              group-hover:opacity-100 opacity-0 transition group-hover:translate-y-[-10px]'
+        >
+          {(playingSong?.id === song.id && isPlaying) ? (
+            <IoPause className='w-5 h-5 text-white' />
+          ) : (
+            <IoPlay className='w-5 h-5 text-white' />
+          )}
         </div>
       </section>
     </div>
