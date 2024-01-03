@@ -9,7 +9,7 @@ interface SongCardProps {
 const SongCard = ({ song }: SongCardProps) => {
   return (
     <div
-      className='group relative w-[250px] bg-gray-50 rounded-lg space-y-1 hover:bg-white hover:cursor-pointer transition'
+      className='group relative w-[235px] bg-gray-50 rounded-lg space-y-1 hover:bg-white hover:cursor-pointer transition'
     >
       <section>
         <img

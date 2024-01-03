@@ -17,7 +17,7 @@ const ArtistGallery = ({ artists }: ArtistGalleryProps) => {
           </p>
         </div>
       )}
-      <div className='flex space-x-10'>
+      <div className='flex gap-x-5 flex-wrap gap-y-5'>
         {artists.map(artist => (
           <Link to={`/artists/${artist.id}/albums`} key={artist.id}>
             <ArtistCard artist={artist} />

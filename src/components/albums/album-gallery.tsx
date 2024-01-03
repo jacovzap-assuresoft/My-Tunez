@@ -17,7 +17,7 @@ const AlbumGallery = ({ albums }: AlbumGalleryProps) => {
           </p>
         </div>
       )}
-      <div className='flex space-x-10'>
+      <div className='flex gap-x-5 flex-wrap gap-y-5'>
         {albums.map(album => (
           <Link key={album.id} to={`/albums/${album.id}/songs`}>
             <AlbumCard album={album} />
