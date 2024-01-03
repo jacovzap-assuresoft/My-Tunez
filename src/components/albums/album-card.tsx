@@ -6,7 +6,7 @@ interface AlbumCardProps {
 
 const AlbumCard = ({ album }: AlbumCardProps) => {
   return (
-    <div className='w-[250px] bg-gray-50 rounded-lg space-y-1 hover:bg-white hover:cursor-pointer hover:scale-[1.01] transition'>
+    <div className='w-[250px] bg-gray-50 rounded-lg space-y-1 hover:bg-white hover:cursor-pointer transition'>
       <section>
         <img src={album.cover} alt='' className='w-full object-cover rounded-t-lg' />
       </section>

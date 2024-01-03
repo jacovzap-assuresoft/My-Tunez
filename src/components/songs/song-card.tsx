@@ -1,4 +1,5 @@
 
+import { IoPlay } from "react-icons/io5";
 import { Song } from '../../types'
 
 interface SongCardProps {
@@ -8,7 +9,7 @@ interface SongCardProps {
 const SongCard = ({ song }: SongCardProps) => {
   return (
     <div
-      className='w-[250px] bg-gray-50 rounded-lg space-y-1 hover:bg-white hover:cursor-pointer hover:scale-[1.01] transition'
+      className='group relative w-[250px] bg-gray-50 rounded-lg space-y-1 hover:bg-white hover:cursor-pointer transition'
     >
       <section>
         <img
@@ -17,7 +18,7 @@ const SongCard = ({ song }: SongCardProps) => {
           className='w-full object-cover rounded-t-lg'
         />
       </section>
-      <section className=' space-y-1 p-3'>
+      <section className='space-y-1 p-3'>
         <h1 className=' text-gray-700 font-semibold text-lg'>{song.title}</h1>
         <div className='text-gray-500'>
           <p>{song.albumTitle}</p>
@@ -27,7 +28,10 @@ const SongCard = ({ song }: SongCardProps) => {
           <span> • </span>
           <p>{song.releaseDate.split('-')[0]}</p>
         </div>
-        <div></div>
+        <div className="absolute bg-red-700 p-3 rounded-full right-4 top-[195px] 
+              group-hover:opacity-100 opacity-0 transition group-hover:translate-y-[-10px]">
+          <IoPlay className='w-5 h-5 text-white'/>
+        </div>
       </section>
     </div>
   )
