@@ -5,6 +5,7 @@ import { Album, Artist } from '../types'
 import { getAllArtists } from '../services/artists'
 import { getAllAlbums, createAlbum } from '../services/albums'
 
+import useToast from './useToast'
 
 interface SelectFormat {
   label: string
@@ -24,6 +25,8 @@ const useAlbums = () => {
 
   const [isFormValid, setIsFormValid] = useState(false)
   const [artists, setArtists] = useState<SelectFormat[]>([])
+
+  const toast = useToast()
 
   const handleGetAlbums = async () => {
     const albums = await getAllAlbums()
@@ -80,6 +83,7 @@ const useAlbums = () => {
     await createAlbum(newAlbum)
     await handleGetAlbums()
     clearForm()
+    toast.toastSuccess('Album created successfully')
   }
 
   return {

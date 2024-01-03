@@ -6,6 +6,7 @@ import { getAllSongs, createSong } from '../services/songs'
 import { getAllAlbums, addSongToAlbum, getSingleAlbum } from '../services/albums'
 import { getAllArtists } from '../services/artists'
 
+import useToast from './useToast'
 
 interface SelectFormat {
   label: string
@@ -27,6 +28,8 @@ const useSongs = () => {
   const [isFormValid, setIsFormValid] = useState(false)
   const [albums, setAlbums] = useState<SelectFormat[]>([])
   const [artists, setArtists] = useState<SelectFormat[]>([])
+
+  const toast = useToast()
 
   const handleGetSongs = async () => {
     const response = await getAllSongs()
@@ -112,6 +115,7 @@ const useSongs = () => {
     await addSongToAlbum(albumId, newSong.id)
     await handleGetSongs()
     clearForm()
+    toast.toastSuccess('Song created successfully')
   }
 
   return {

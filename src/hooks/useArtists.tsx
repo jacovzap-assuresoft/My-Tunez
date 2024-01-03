@@ -4,6 +4,7 @@ import ShortUniqueId from 'short-unique-id'
 import { Artist } from '../types'
 import { getAllArtists, createArtist } from '../services/artists'
 
+import useToast from './useToast'
 
 const useArtists = () => {
   const id = useMemo(() => new ShortUniqueId({ length: 10 }).rnd(), [])
@@ -20,6 +21,8 @@ const useArtists = () => {
   const [integrant, setIntegrant] = useState('')
 
   const [isFormValid, setIsFormValid] = useState(false)
+
+  const toast = useToast()
 
   const handleGetArtists = async () => {
     const response = await getAllArtists()
@@ -66,6 +69,7 @@ const useArtists = () => {
     await createArtist(newArtist)
     await handleGetArtists()
     clearForm()
+    toast.toastSuccess('Artist created successfully!')
   }
 
   const handleAddGenre = () => {
