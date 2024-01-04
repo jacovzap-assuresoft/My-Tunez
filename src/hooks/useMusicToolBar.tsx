@@ -1,13 +1,36 @@
 import { useState, useEffect, useRef } from 'react'
 
 import usePlayerStore from '../store/usePlayerStore'
+import { Song } from '../types'
 
 const useMusicToolBar = () => {
   const audioRef = useRef<HTMLAudioElement>(null)
   const [audioDuration, setAudioDuration] = useState(0)
   const [audioCurrentTime, setAudioCurrentTime] = useState(0)
   const [audioVolume, setAudioVolume] = useState(1)
-  const { playingSong, setPlayingSong, isPlaying, setIsPlaying, queue } = usePlayerStore()
+  const [playerQueue, setPlayerQueue] = useState<Song[]>([])
+  const {
+    playingSong,
+    setPlayingSong,
+    isPlaying,
+    setIsPlaying,
+    queue,
+    setShuffledQueue,
+    isShuffle,
+    setIsShuffle,
+    isRepeat,
+    setIsRepeat
+  } = usePlayerStore()
+
+  useEffect(() => {
+    if (isShuffle) {
+      const shuffledQueue = [...queue].sort(() => Math.random() - 0.5)
+      setShuffledQueue(shuffledQueue)
+      setPlayerQueue(shuffledQueue)
+    } else {
+      setPlayerQueue(queue)
+    }
+  }, [queue, isShuffle, setShuffledQueue])
 
   useEffect(() => {
     audioRef.current!.addEventListener('loadedmetadata', () => {
@@ -50,21 +73,20 @@ const useMusicToolBar = () => {
   }
 
   const handleClickNextSong = () => {
-    const currentSongIndex = queue.findIndex(
+    const currentSongIndex = playerQueue.findIndex(
       song => song.id === playingSong!.id
     )
-    const nextSong = queue[currentSongIndex + 1]
+    const nextSong = playerQueue[currentSongIndex + 1]
 
     if (nextSong) {
       setPlayingSong(nextSong)
-    }
-    else {
-      setPlayingSong(queue[0])
+    } else if(isRepeat) {
+      setPlayingSong(playerQueue[0])
     }
   }
 
   const handleClickPreviousSong = () => {
-    const currentSongIndex = queue.findIndex(
+    const currentSongIndex = playerQueue.findIndex(
       song => song.id === playingSong!.id
     )
 
@@ -74,10 +96,12 @@ const useMusicToolBar = () => {
       return
     }
 
-    const previousSong = queue[currentSongIndex - 1]
+    const previousSong = playerQueue[currentSongIndex - 1]
 
     if (previousSong) {
       setPlayingSong(previousSong)
+    } else if(isRepeat) {
+      setPlayingSong(playerQueue[playerQueue.length - 1])
     }
   }
 
@@ -86,6 +110,10 @@ const useMusicToolBar = () => {
     playingSong,
     isPlaying,
     handleMainButton,
+    isShuffle,
+    setIsShuffle,
+    isRepeat,
+    setIsRepeat,
 
     audioVolume,
     audioDuration,

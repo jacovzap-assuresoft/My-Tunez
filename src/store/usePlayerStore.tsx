@@ -9,7 +9,11 @@ interface PlayerStore {
   isPlaying: boolean
   setIsPlaying: (isPlaying: boolean) => void
   isRepeat: boolean
+  setIsRepeat: (isRepeat: boolean) => void
   isShuffle: boolean
+  shuffledQueue: Song[]
+  setShuffledQueue: (shuffledQueue: Song[]) => void
+  setIsShuffle: (isShuffle: boolean) => void
   setPlayingSong: (song: Song) => void
 }
 
@@ -22,7 +26,11 @@ const usePlayerStore = create<PlayerStore>()(
             isPlaying: false,
             setIsPlaying: (isPlaying: boolean) => set({ isPlaying }),
             isRepeat: false,
+            setIsRepeat: (isRepeat: boolean) => set({ isRepeat }),
             isShuffle: false,
+            shuffledQueue: [],
+            setShuffledQueue: (shuffledQueue: Song[]) => set({ shuffledQueue }),
+            setIsShuffle: (isShuffle: boolean) => set({ isShuffle }),
             setPlayingSong: (song: Song) => set({ playingSong: song })
         }),
         {
