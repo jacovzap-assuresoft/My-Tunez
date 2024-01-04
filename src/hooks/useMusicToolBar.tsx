@@ -39,6 +39,9 @@ const useMusicToolBar = () => {
     audioRef.current!.addEventListener('timeupdate', () => {
       setAudioCurrentTime(audioRef.current!.currentTime)
     })
+    audioRef.current!.addEventListener('ended', () => {
+      handleClickNextSong()
+    })
   }, [])
 
   useEffect(() => {

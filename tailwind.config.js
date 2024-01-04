@@ -8,6 +8,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    darkMode: 'class',
     fontFamily: {
       sans: ['Inter var', ...defaultTheme.fontFamily.sans],
     },
