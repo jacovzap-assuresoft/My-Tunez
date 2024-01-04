@@ -7,6 +7,9 @@ import {
   IoPlaySkipForward
 } from 'react-icons/io5'
 
+import SongSlider from './song-slider'
+import VolumeSlider from './volume-slider'
+
 import useMusicToolBar from '../hooks/useMusicToolBar'
 
 const MusicToolbar = () => {
@@ -25,8 +28,8 @@ const MusicToolbar = () => {
               <p className='text-gray-600'>{player.playingSong.artistName}</p>
             </div>
           </section>
-          <section className='absolute flex top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]'>
-            <div className='flex flex-col space-y-2'>
+          <section className='absolute flex top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] justifiy-center'>
+            <div className='flex flex-col space-y-0 items-center'>
               <div className='flex space-x-5 items-center'>
                 <div className='hover:cursor-pointer hover:bg-gray-200 transition p-2 rounded-full'>
                   <IoShuffle className='w-5 h-5' />
@@ -34,9 +37,12 @@ const MusicToolbar = () => {
                 <div className='hover:cursor-pointer hover:bg-gray-200 transition p-2 rounded-full'>
                   <IoPlaySkipBack className='w-5 h-5' />
                 </div>
-                <div className='p-3 bg-red-700 rounded-full cursor-pointer hover:opacity-80' onClick={player.handleMainButton}>
+                <div
+                  className='p-3 bg-red-700 rounded-full cursor-pointer hover:opacity-80'
+                  onClick={player.handleMainButton}
+                >
                   {!player.isPlaying ? (
-                      <IoPlay className='text-white w-5 h-5' />
+                    <IoPlay className='text-white w-5 h-5' />
                   ) : (
                     <IoPause className='text-white w-5 h-5' />
                   )}
@@ -48,15 +54,22 @@ const MusicToolbar = () => {
                   <IoRepeat className='w-5 h-5' />
                 </div>
               </div>
-              <input type='range' className='text-red-700' />
+              <SongSlider
+                audioDuration={player.audioDuration}
+                audioCurrentTime={player.audioCurrentTime}
+                setAudioCurrentTime={player.handleSetCurrentTime}
+              />
             </div>
           </section>
           <section className='flex items-center'>
-            <input type='range' />
+            <VolumeSlider
+              volume={player.audioVolume}
+              setVolume={player.setAudioVolume}
+            />
           </section>
-          <audio ref={player.audioRef} controls></audio>
         </div>
       )}
+      <audio ref={player.audioRef}></audio>
     </aside>
   )
 }
