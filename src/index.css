@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 * {
+  user-select: none;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -47,7 +48,6 @@ input[type=number] {
 input[type=range] {
   -webkit-appearance: none;
   appearance: none;
-  margin: 0px 0;
   width: 100%;
 }
 

@@ -5,6 +5,7 @@ import { Song } from '../types'
 interface PlayerStore {
   playingSong: Song | null
   queue: Song[]
+  setQueue: (queue: Song[]) => void
   isPlaying: boolean
   setIsPlaying: (isPlaying: boolean) => void
   isRepeat: boolean
@@ -17,6 +18,7 @@ const usePlayerStore = create<PlayerStore>()(
         (set, get) => ({
             playingSong: null,
             queue: [],
+            setQueue: (queue: Song[]) => set({ queue }),
             isPlaying: false,
             setIsPlaying: (isPlaying: boolean) => set({ isPlaying }),
             isRepeat: false,

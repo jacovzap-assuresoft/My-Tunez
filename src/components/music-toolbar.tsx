@@ -28,6 +28,7 @@ const MusicToolbar = () => {
               <p className='text-gray-600'>{player.playingSong.artistName}</p>
             </div>
           </section>
+
           <section className='absolute flex top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] justifiy-center'>
             <div className='flex flex-col space-y-0 items-center'>
               <div className='flex space-x-5 items-center'>
@@ -35,7 +36,7 @@ const MusicToolbar = () => {
                   <IoShuffle className='w-5 h-5' />
                 </div>
                 <div className='hover:cursor-pointer hover:bg-gray-200 transition p-2 rounded-full'>
-                  <IoPlaySkipBack className='w-5 h-5' />
+                  <IoPlaySkipBack className='w-5 h-5' onClick={player.handleClickPreviousSong}/>
                 </div>
                 <div
                   className='p-3 bg-red-700 rounded-full cursor-pointer hover:opacity-80'
@@ -48,10 +49,10 @@ const MusicToolbar = () => {
                   )}
                 </div>
                 <div className='hover:cursor-pointer hover:bg-gray-200 transition p-2 rounded-full'>
-                  <IoPlaySkipForward className='w-5 h-5' />
+                  <IoPlaySkipForward className='w-5 h-5' onClick={player.handleClickNextSong}/>
                 </div>
                 <div className='hover:cursor-pointer hover:bg-gray-200 transition p-2 rounded-full'>
-                  <IoRepeat className='w-5 h-5' />
+                  <IoRepeat className='w-5 h-5'/>
                 </div>
               </div>
               <SongSlider
@@ -61,6 +62,7 @@ const MusicToolbar = () => {
               />
             </div>
           </section>
+
           <section className='flex items-center'>
             <VolumeSlider
               volume={player.audioVolume}

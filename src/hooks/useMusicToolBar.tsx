@@ -7,7 +7,7 @@ const useMusicToolBar = () => {
   const [audioDuration, setAudioDuration] = useState(0)
   const [audioCurrentTime, setAudioCurrentTime] = useState(0)
   const [audioVolume, setAudioVolume] = useState(1)
-  const { playingSong, isPlaying, setIsPlaying } = usePlayerStore()
+  const { playingSong, setPlayingSong, isPlaying, setIsPlaying, queue } = usePlayerStore()
 
   useEffect(() => {
     audioRef.current!.addEventListener('loadedmetadata', () => {
@@ -49,6 +49,35 @@ const useMusicToolBar = () => {
     audioRef.current!.currentTime = time
   }
 
+  const handleClickNextSong = () => {
+    const currentSongIndex = queue.findIndex(
+      song => song.id === playingSong!.id
+    )
+    const nextSong = queue[currentSongIndex + 1]
+
+    if (nextSong) {
+      setPlayingSong(nextSong)
+    }
+  }
+
+  const handleClickPreviousSong = () => {
+    const currentSongIndex = queue.findIndex(
+      song => song.id === playingSong!.id
+    )
+
+    if (audioCurrentTime > 10) {
+      setAudioCurrentTime(0)
+      audioRef.current!.currentTime = 0
+      return
+    }
+
+    const previousSong = queue[currentSongIndex - 1]
+
+    if (previousSong) {
+      setPlayingSong(previousSong)
+    }
+  }
+
   return {
     audioRef,
     playingSong,
@@ -60,7 +89,9 @@ const useMusicToolBar = () => {
     audioCurrentTime,
     setAudioVolume,
     setAudioCurrentTime,
-    handleSetCurrentTime
+    handleSetCurrentTime,
+    handleClickNextSong,
+    handleClickPreviousSong
   }
 }
 

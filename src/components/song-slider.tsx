@@ -18,17 +18,17 @@ const SongSlider = ({
   }
 
   return (
-    <div className='space-x-3 relative'>
-      <p className="absolute left-[-50px] top-[1px]">{formatTime(audioCurrentTime)}</p>
+    <div className='relative w-[420px]'>
+      <p className="absolute left-[-60px] top-[1px]">{formatTime(audioCurrentTime)}</p>
       <input
         onChange={event => setAudioCurrentTime(Number(event.target.value))}
         type='range'
         min='0'
         max={audioDuration}
         value={audioCurrentTime}
-        className='min-w-[400px]'
+
       />
-      <p className="absolute right-[-70px] top-[1px]">{formatTime(audioDuration)}</p>
+      <p className="absolute right-[-60px] top-[1px]">{formatTime(audioDuration)}</p>
     </div>
   )
 }

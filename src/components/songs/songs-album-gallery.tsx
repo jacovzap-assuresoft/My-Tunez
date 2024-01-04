@@ -8,11 +8,17 @@ interface SongsAlbumGalleryProps {
 }
 
 const SongsAlbumGallery = ({ songs }: SongsAlbumGalleryProps) => {
-  const { playingSong, setPlayingSong, isPlaying, setIsPlaying } =
-    usePlayerStore()
+  const {
+    playingSong,
+    setPlayingSong,
+    isPlaying,
+    setIsPlaying,
+    setQueue
+  } = usePlayerStore()
 
   const handleClick = (song: Song) => {
     setPlayingSong(song)
+    setQueue(songs)
 
     if (song.id === playingSong?.id) setIsPlaying(!isPlaying)
     else setIsPlaying(true)
