@@ -19,7 +19,7 @@ interface PlayerStore {
 
 const usePlayerStore = create<PlayerStore>()(
     persist(
-        (set, get) => ({
+        (set) => ({
             playingSong: null,
             queue: [],
             setQueue: (queue: Song[]) => set({ queue }),
