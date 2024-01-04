@@ -5,7 +5,7 @@ const AlbumSongs = () => {
   const { album, songs } = useAlbumSongs()
 
   return (
-    <div className='grow flex flex-col px-7 py-11 space-y-10'>
+    <div className='grow flex flex-col px-7 py-11 space-y-10 mb-28'>
       <section className='flex space-x-10 items-center'>
         <img src={album?.cover} alt='' className='w-[210px] rounded-lg' />
         <div className='space-y-2'>

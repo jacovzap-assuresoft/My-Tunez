@@ -8,7 +8,7 @@ const Artists = () => {
   const artists = useArtists()
 
   return (
-    <div className='grow flex flex-col px-7 py-11 space-y-10'>
+    <div className='grow flex flex-col px-7 py-11 space-y-10 mb-28'>
       <section className='flex justify-between'>
         <h1 className=' text-4xl font-bold'>Artists</h1>
         <Modal title={'Register Artist'}>
