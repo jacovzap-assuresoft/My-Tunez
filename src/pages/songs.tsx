@@ -11,11 +11,15 @@ const Songs = () => {
     <div className='grow flex flex-col px-7 py-11 space-y-10 mb-28'>
       <section className='flex justify-between'>
         <h1 className=' text-4xl font-bold'>Songs</h1>
-        <Modal title={'Register Song'}>
+        <Modal
+          title={'Register Song'}
+          isOpen={songs.isModalOpen}
+          setIsOpen={songs.setIsModalOpen}
+        >
           <SongForm songs={songs} />
         </Modal>
       </section>
-     <SongGallery songs={songs.songs}/>
+      <SongGallery songs={songs.songs} />
     </div>
   )
 }

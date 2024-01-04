@@ -24,6 +24,8 @@ const useAlbums = () => {
   const [isFormValid, setIsFormValid] = useState(false)
   const [artists, setArtists] = useState<SelectFormat[]>([])
 
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   const toast = useToast()
 
   const handleGetAlbums = async () => {
@@ -80,6 +82,7 @@ const useAlbums = () => {
 
     await createAlbum(newAlbum)
     await handleGetAlbums()
+    setIsModalOpen(false)
     clearForm()
     toast.toastSuccess('Album created successfully')
   }
@@ -100,7 +103,9 @@ const useAlbums = () => {
     artists,
     isFormValid,
 
-    handleCreateAlbum
+    handleCreateAlbum,
+    isModalOpen,
+    setIsModalOpen
   }
 }
 

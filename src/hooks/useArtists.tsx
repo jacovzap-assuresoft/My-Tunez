@@ -19,6 +19,7 @@ const useArtists = () => {
   const [integrant, setIntegrant] = useState('')
 
   const [isFormValid, setIsFormValid] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const toast = useToast()
 
@@ -66,6 +67,7 @@ const useArtists = () => {
 
     await createArtist(newArtist)
     await handleGetArtists()
+    setIsModalOpen(false)
     clearForm()
     toast.toastSuccess('Artist created successfully!')
   }
@@ -106,6 +108,8 @@ const useArtists = () => {
     setWebsite,
     image,
     setImage,
+    isModalOpen,
+    setIsModalOpen,
 
     isFormValid,
     setIsFormValid,

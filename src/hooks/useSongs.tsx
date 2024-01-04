@@ -23,6 +23,7 @@ const useSongs = () => {
   const [albumId, setAlbumId] = useState('')
   const [duration, setDuration] = useState(NaN)
   const [audio, setAudio] = useState('')
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const [isFormValid, setIsFormValid] = useState(false)
   const [albums, setAlbums] = useState<SelectFormat[]>([])
@@ -113,6 +114,7 @@ const useSongs = () => {
     await createSong(newSong)
     await addSongToAlbum(albumId, newSong.id)
     await handleGetSongs()
+    setIsModalOpen(false)
     clearForm()
     toast.toastSuccess('Song created successfully')
   }
@@ -133,6 +135,8 @@ const useSongs = () => {
     setDuration,
     audio,
     setAudio,
+    isModalOpen,
+    setIsModalOpen,
 
     albums,
     artists,

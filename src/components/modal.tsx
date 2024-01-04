@@ -1,15 +1,16 @@
 import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 
 import Button from './button'
 
 interface ModalProps {
+  isOpen: boolean
+  setIsOpen: (value: boolean) => void
   title: string
   children: React.ReactNode
 }
 
-const Modal = ({title, children}: ModalProps) => {
-  const [isOpen, setIsOpen] = useState(false)
+const Modal = ({title, children, isOpen, setIsOpen}: ModalProps) => {
 
   function closeModal() {
     setIsOpen(false)
