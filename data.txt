@@ -24,13 +24,6 @@ Liquor Store Blues
 Count on Me
 The Other Side
 
-https://www.computerhope.com/jargon/m/example.mp3
-
-
-
-
-
-https://raw.githubusercontent.com/jacovzap-assuresoft/my-tunez-resources/main/Doo-Wops%20%26%20Hooligans/Our%20First%20Time.mp3
 
 https://raw.githubusercontent.com/jacovzap-assuresoft/my-tunez-resources/main/Doo-Wops%20%26%20Hooligans/Grenade.mp3
 https://raw.githubusercontent.com/jacovzap-assuresoft/my-tunez-resources/main/Doo-Wops%20%26%20Hooligans/Just%20the%20Way%20You%20Are.mp3
@@ -44,3 +37,32 @@ https://raw.githubusercontent.com/jacovzap-assuresoft/my-tunez-resources/main/Do
 https://raw.githubusercontent.com/jacovzap-assuresoft/my-tunez-resources/main/Doo-Wops%20%26%20Hooligans/The%20Other%20Side%20(feat.%20CeeLo%20Green%20and%20B.o.B).mp3
 
 
+Album:
+Unorthodox Jukebox
+POP
+12 - 2012
+https://i.scdn.co/image/ab67616d0000b273f60070dce96a2c1b70cf6ff0
+
+
+Songs:
+Young Girls
+Locked Out of Heaven
+Gorilla
+Treasure
+Moonshine
+When I Was Your Man
+Natalie
+Show Me
+Money Make Her Smile
+If I Knew
+
+https://raw.githubusercontent.com/jacovzap-assuresoft/my-tunez-resources/main/Unorthodox%20Jukebox/Young%20Girls.mp3
+https://raw.githubusercontent.com/jacovzap-assuresoft/my-tunez-resources/main/Unorthodox%20Jukebox/Locked%20out%20of%20Heaven.mp3
+https://raw.githubusercontent.com/jacovzap-assuresoft/my-tunez-resources/main/Unorthodox%20Jukebox/Gorilla.mp3
+https://raw.githubusercontent.com/jacovzap-assuresoft/my-tunez-resources/main/Unorthodox%20Jukebox/Treasure.mp3
+https://raw.githubusercontent.com/jacovzap-assuresoft/my-tunez-resources/main/Unorthodox%20Jukebox/Moonshine.mp3
+https://raw.githubusercontent.com/jacovzap-assuresoft/my-tunez-resources/main/Unorthodox%20Jukebox/When%20I%20Was%20Your%20Man.mp3
+https://raw.githubusercontent.com/jacovzap-assuresoft/my-tunez-resources/main/Unorthodox%20Jukebox/Natalie.mp3
+https://raw.githubusercontent.com/jacovzap-assuresoft/my-tunez-resources/main/Unorthodox%20Jukebox/Show%20Me.mp3
+https://raw.githubusercontent.com/jacovzap-assuresoft/my-tunez-resources/main/Unorthodox%20Jukebox/Money%20Make%20Her%20Smile.mp3
+https://raw.githubusercontent.com/jacovzap-assuresoft/my-tunez-resources/main/Unorthodox%20Jukebox/If%20I%20Knew.mp3

@@ -58,6 +58,9 @@ const useMusicToolBar = () => {
     if (nextSong) {
       setPlayingSong(nextSong)
     }
+    else {
+      setPlayingSong(queue[0])
+    }
   }
 
   const handleClickPreviousSong = () => {

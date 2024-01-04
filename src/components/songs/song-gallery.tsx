@@ -17,7 +17,7 @@ const SongGallery = ({songs}: SongGalleryProps) => {
     )}
     <div className='flex gap-x-5 flex-wrap gap-y-5'>
     {songs.map(song => (
-      <SongCard song={song} key={song.id}/>
+      <SongCard key={song.id} song={song} songs={songs}/>
     ))}
     </div>
   </section>

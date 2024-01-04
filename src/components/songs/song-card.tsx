@@ -5,12 +5,14 @@ import usePlayerStore from '../../store/usePlayerStore'
 
 interface SongCardProps {
   song: Song
+  songs: Song[]
 }
 
-const SongCard = ({ song }: SongCardProps) => {
-  const { playingSong, setPlayingSong, isPlaying, setIsPlaying } = usePlayerStore()
+const SongCard = ({ song, songs }: SongCardProps) => {
+  const { playingSong, setPlayingSong, isPlaying, setIsPlaying, setQueue } = usePlayerStore()
 
   const handleClick = () => {
+    setQueue(songs)
     setPlayingSong(song)
 
     if(song.id === playingSong?.id) setIsPlaying(!isPlaying)

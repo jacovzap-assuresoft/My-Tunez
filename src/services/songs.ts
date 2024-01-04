@@ -27,6 +27,7 @@ export const createSong = async (song: Song) => {
     if (response) {
         const songs = JSON.parse(response)
         songs.push(song)
+        songs.sort((a: Song, b: Song) => a.title.localeCompare(b.title))
         localStorage.setItem('songs', JSON.stringify(songs))
     } else {
         localStorage.setItem('songs', JSON.stringify([song]))
